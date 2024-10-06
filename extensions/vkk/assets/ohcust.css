@@ -1,0 +1,160 @@
+.container {
+    padding: 20px;
+  }
+
+  .welcome-banner {
+   padding: 20px;
+    color: black;
+  }
+
+  .welcome-banner h1 {
+    font-weight: bold;
+  }
+
+  .welcome-banner p {
+    margin-top: -40px;
+  }
+
+
+  .row {
+    display: flex;
+  }
+
+  .card {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid;
+    border-radius: 8px;
+  }
+
+  .user-avatar {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+    background-color: yellow;
+    border-radius: 50%;
+    font-size: 2em;
+    line-height: 80px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .user-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-center;
+  }
+
+  .menu-item {
+    display: flex;
+    padding: 10px 0;
+    width: 100%;
+  }
+
+  .menu-item i {
+    margin-right: 10px;
+  }
+
+  .badge {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 8px;
+    font-size: 0.8em;
+  }
+
+  .info-section {
+    margin-bottom: 20px;
+  }
+
+  .info-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .info-item span {
+    color: gray;
+  }
+
+  button {
+    background-color: #5677fc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #4559d7;
+  }
+
+  .left-column {
+    width: 35%;
+  }
+  .right-column {
+    width: 65%;
+  }
+
+  .firstMenue {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+   
+
+  }
+
+  .firstMenue1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .menutop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px; 
+    background-color: #ebeced;
+  }
+  .menutop:last-child {
+    margin-right: 0; /* Remove margin from the last item */
+  }
+
+  .menuebottom{
+    display: flex;
+    
+  }
+
+  .menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+  }
+  .menu-item i {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  .menu-item span {
+    font-size: 16px;
+    text-transform: lowercase;
+  }
+  .menu-item.active {
+    background-color: #e0e0e0;
+  }
+
+  .user-menu .menu-item.selected {
+    background-color: gray;
+    color: white;
+  }

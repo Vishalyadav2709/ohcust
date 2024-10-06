@@ -1,0 +1,254 @@
+<head>
+  <!-- Other meta tags and CSS links -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-dExf0zQYRI9HoDpKfdWmAkZLx7pFG5Ryo+1kKxZ5OjZtczjmwEZFOgFaCxXnFQ05OxofxW9nUzZg5gfIufA9w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Other scripts -->
+</head>
+
+<body>
+  <div class="container">
+    <!-- Welcome Section -->
+    <div class="welcome-banner" style="background-color: #ffe83c;">
+      <h1>Good Morning, <strong>Daisy</strong></h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="row">
+      <!-- Left Column (User Info & Menu) - 30% width -->
+      <div class="col-md-4" style="width: 30%;">
+        <div class="card" style="background-color: {{ settings.card_bg_color }}; border-color: {{ settings.card_border_color }};">
+          <div class="user-avatar">
+            <div class="avatar" style="background-color: #ffe83c;">DS</div>
+            <h3>Daisy S</h3>
+          </div>
+
+          <!-- User Menu -->
+          <div class="user-menu">
+          <div id="menuContainer1" class=" firstMenue ">></div>
+          <div id="menuContainer2" class=" firstMenue ">></div>
+            <div  class="firstMenue1">
+            <div id="menuContainer"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column (User Info) - 70% width -->
+    <div class="col-md-8" style="width: 70%;">
+      <div id="personalInfo" class="info-section">
+        <div class="card" style="background-color: {{ block.settings.card_bg_color }}; border-color: {{ block.settings.card_border_color }};">
+          <!-- Personal Information -->
+          <div >
+          <div class="info-item">
+          <h2 style="color: {{ block.settings.body_text }}; font-family: {{ block.settings.font_style }};">Personal Information</h2>
+            <button>Edit</button>
+          </div>
+            <div class="info-item">
+              <span>Name</span> <strong>Daisy S</strong>
+            </div>
+            <div class="info-item">
+              <span>Birthdate</span> <strong>03-3-2001</strong>
+            </div>
+            <div class="info-item">
+              <span>Gender</span> <strong>Male</strong>
+            </div>
+            
+          </div>
+        </div>
+        <div class="card" style="background-color: {{ block.settings.card_bg_color }}; border-color: {{ block.settings.card_border_color }};">
+         <!-- Contact Information -->
+          <div>
+            <h2>Contact Information</h2>
+            <div class="info-item">
+              <span>Email</span> <strong>mail@mailmail</strong>
+            </div>
+            <div class="info-item">
+              <span>Phone</span> <strong>123459604</strong>
+            </div>
+            <button>Edit</button>
+          </div>
+        </div>
+        <!-- Delivery Address Section -->
+        <div class="card" style="background-color: #5677fc; border-color: #5677fc;">
+          <h3>Add Delivery Address in your profile</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+          <button>Add</button>
+        </div>
+      </div>
+
+      <!-- Orders Section -->
+        <div id="orders" class="info-section hidden">
+          <h2>Orders</h2>
+          <p>Your order details will be displayed here.</p>
+        </div>
+
+        <!-- Wishlist Section -->
+        <div id="wishlist" class="info-section hidden">
+          <h2>Wishlist</h2>
+          <p>Your wishlist items will be displayed here.</p>
+        </div>
+
+        <!-- Recent Section -->
+        <div id="recent" class="info-section hidden">
+          <h2>Recent</h2>
+          <p>Your recent activities will be displayed here.</p>
+        </div>
+
+        <!-- Credits Section -->
+        <div id="credits" class="info-section hidden">
+          <h2>Credits</h2>
+          <p>Your credit information will be displayed here.</p>
+        </div>
+
+        <div id="changePassword" class="info-section hidden">
+          <h2>Change Password</h2>
+          <p>Change your password here.</p>
+        </div>
+    </div>
+
+
+    </div>
+  </div>
+
+  <!-- Font Awesome Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  <script>
+  // Function to show the selected section and highlight the menu item
+  function selectMenuItem(element, sectionId, sectionName) {
+    const menuItems = document.querySelectorAll('.menu-item');
+    
+    // Remove 'selected' class from all menu items
+    menuItems.forEach(item => item.classList.remove('selected'));
+    
+    // Add 'selected' class to the clicked item
+    element.classList.add('selected');
+
+    // Display the selected section and update section text
+    showSection(sectionId, sectionName);
+  }
+
+  // Function to show the selected section
+  function showSection(sectionId, sectionName) {
+    const sections = document.querySelectorAll('.info-section');
+    sections.forEach(section => section.classList.add('hidden')); // Hide all sections
+    document.getElementById(sectionId).classList.remove('hidden'); // Show the selected section
+
+    // Update the selected menu item
+    document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('selected'));
+    const menuItem = Array.from(document.querySelectorAll('.menu-item')).find(item => item.textContent.trim() === sectionName);
+    if (menuItem) menuItem.classList.add('selected');
+  }
+
+  // Initial call to show 'Personal Information' section with default selected color
+  showSection('personalInfo', 'Personal Information');
+</script>
+<script>
+  const menuItems = [
+    { label: "Profile", icon: "fas fa-user", action: "selectMenuItem(this, 'personalInfo', 'Profile')" },
+    { label: "Change Password", icon: "fas fa-key", action: "selectMenuItem(this, 'changePassword', 'Change Password')" },
+    { label: "Offers", icon: "fas fa-tag", action: "selectMenuItem(this, 'personalInfo', 'Offers')" },
+    { label: "Logout", icon: "fas fa-sign-out-alt", action: "selectMenuItem(this, 'personalInfo', 'Logout')" }
+  ];
+
+  const menuItems1 = [
+    { label: "Orders", icon: "fas fa-shopping-bag", action: "selectMenuItem(this, 'orders', 'Orders')" },
+    { label: "Recent", icon: "fas fa-clock", action: "selectMenuItem(this, 'recent', 'Recent')" }
+  ];
+
+  const menuItems2 = [
+    { label: "Credits", icon: "fas fa-credit-card", action: "selectMenuItem(this, 'credits', 'Credits')" },
+    { label: "Wishlist", icon: "fas fa-heart", action: "selectMenuItem(this, 'wishlist', 'Wishlist')" }
+  ];
+
+  document.getElementById("menuContainer1").innerHTML = menuItems1
+  .map(item => `
+    <div class="col text-center mb-3 menutop menu-item" style="padding: 10px; margin-bottom: 10px;" onclick="${item.action}">
+      <i class="${item.icon}" style="font-size: 24px;"></i>
+      <div>${item.label}</div>
+    </div>
+  `)
+  .join('');
+
+  document.getElementById("menuContainer2").innerHTML = menuItems2
+  .map(item => `
+    <div class="col text-center mb-3 menutop menu-item" style="padding: 10px; margin-bottom: 10px;" onclick="${item.action}">
+      <i class="${item.icon}" style="font-size: 24px;"></i>
+      <div>${item.label}</div>
+    </div>
+  `)
+  .join('');
+
+  document.getElementById("menuContainer").innerHTML = menuItems
+    .map(item => `
+      <div class="col text-center mb-3 menu-item menuebottom"  onclick="${item.action}">
+        <i class="${item.icon}" style="font-size: 24px;"></i>
+        <div style="margin-left:20px;">${item.label}</div>
+      </div>
+    `)
+    .join('');
+</script>
+
+</body>
+
+{% schema %}
+{
+  "name": "Ohcustomerrr",
+  "target": "section",
+  "class": "ohcust",
+  "stylesheet": "ohcust.css",
+  "javascript": "ohcust.js",
+  "settings": [
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Card Border Color",
+      "default": "#e0e0e0"
+    },
+    {
+      "type": "color",
+      "id": "body_text",
+      "label": "Body text",
+      "default": "#e0e0e0"
+    },
+    {
+      "type": "select",
+      "id": "font_style",
+      "label": "Font Style",
+      "default": "Arial",
+      "options": [
+        {
+          "value": "Arial",
+          "label": "Arial"
+        },
+        {
+          "value": "Helvetica",
+          "label": "Helvetica"
+        },
+        {
+          "value": "'Times New Roman', Times, serif",
+          "label": "Times New Roman"
+        },
+        {
+          "value": "Georgia, serif",
+          "label": "Georgia"
+        },
+        {
+          "value": "'Courier New', Courier, monospace",
+          "label": "Courier New"
+        },
+        {
+          "value": "'Lucida Sans', sans-serif",
+          "label": "Lucida Sans"
+        }
+      ]
+    }
+    
+  ]
+}
+{% endschema %}
